@@ -31,24 +31,24 @@ function Dashboard() {
 
   const fetchTodos = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/todos', { headers });
+      const res = await axios.get('https://taskflow-fqk0.onrender.com/api/todos', { headers });
       setTodos(res.data);
     } catch (err) { console.error(err); }
     setLoading(false);
   };
 
   const addTodo = async (text) => {
-    const res = await axios.post('http://localhost:5000/api/todos', { text }, { headers });
+    const res = await axios.post('https://taskflow-fqk0.onrender.com/api/todos', { text }, { headers });
     setTodos([res.data, ...todos]);
   };
 
   const toggleTodo = async (id) => {
-    const res = await axios.patch(`http://localhost:5000/api/todos/${id}`, {}, { headers });
+    const res = await axios.patch(`https://taskflow-fqk0.onrender.com/api/todos/${id}`, {}, { headers });
     setTodos(todos.map(t => t._id === id ? res.data : t));
   };
 
   const deleteTodo = async (id) => {
-    await axios.delete(`http://localhost:5000/api/todos/${id}`, { headers });
+    await axios.delete(`https://taskflow-fqk0.onrender.com/api/todos/${id}`, { headers });
     setTodos(todos.filter(t => t._id !== id));
   };
 

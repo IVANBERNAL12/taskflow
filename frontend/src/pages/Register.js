@@ -15,7 +15,7 @@ function Register() {
     setLoading(true);
     setError('');
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/register', form);
+      const res = await axios.post('https://taskflow-fqk0.onrender.com/api/auth/register', form);
       login(res.data.user, res.data.token);
       navigate('/');
     } catch (err) {
